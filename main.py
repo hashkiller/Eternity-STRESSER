@@ -12,6 +12,26 @@ import threading
 import random
 import urllib.request
 import sys
+from threading import Thread
+from random import choices, randint
+from pystyle import *
+from getpass import getpass as hinput
+
+logo = '''
+
+▓█████▄▄▄█████▓▓█████  ██▀███   ███▄    █  ██▓▄▄▄█████▓▓██   ██▓
+▓█   ▀▓  ██▒ ▓▒▓█   ▀ ▓██ ▒ ██▒ ██ ▀█   █ ▓██▒▓  ██▒ ▓▒ ▒██  ██▒
+▒███  ▒ ▓██░ ▒░▒███   ▓██ ░▄█ ▒▓██  ▀█ ██▒▒██▒▒ ▓██░ ▒░  ▒██ ██░
+▒▓█  ▄░ ▓██▓ ░ ▒▓█  ▄ ▒██▀▀█▄  ▓██▒  ▐▌██▒░██░░ ▓██▓ ░   ░ ▐██▓░
+░▒████▒ ▒██▒ ░ ░▒████▒░██▓ ▒██▒▒██░   ▓██░░██░  ▒██▒ ░   ░ ██▒▓░
+░░ ▒░ ░ ▒ ░░   ░░ ▒░ ░░ ▒▓ ░▒▓░░ ▒░   ▒ ▒ ░▓    ▒ ░░      ██▒▒▒ 
+ ░ ░  ░   ░     ░ ░  ░  ░▒ ░ ▒░░ ░░   ░ ▒░ ▒ ░    ░     ▓██ ░▒░ 
+   ░    ░         ░     ░░   ░    ░   ░ ░  ▒ ░  ░       ▒ ▒ ░░  
+   ░  ░           ░  ░   ░              ░  ░            ░ ░     
+                                                        ░ ░     
+			             Made by hashkiller#5141
+
+    '''
 
 logo_nuke = '''
 ::::    :::      :::    :::      :::    :::      ::::::::::      :::::::::                 ::: 
@@ -45,25 +65,6 @@ print("Loading...")
 time.sleep(2)
 os.system("cls")
 os.system("title Eternity stresser (by hashkiller#5141)")
-
-logo = '''
-
-▓█████▄▄▄█████▓▓█████  ██▀███   ███▄    █  ██▓▄▄▄█████▓▓██   ██▓
-▓█   ▀▓  ██▒ ▓▒▓█   ▀ ▓██ ▒ ██▒ ██ ▀█   █ ▓██▒▓  ██▒ ▓▒ ▒██  ██▒
-▒███  ▒ ▓██░ ▒░▒███   ▓██ ░▄█ ▒▓██  ▀█ ██▒▒██▒▒ ▓██░ ▒░  ▒██ ██░
-▒▓█  ▄░ ▓██▓ ░ ▒▓█  ▄ ▒██▀▀█▄  ▓██▒  ▐▌██▒░██░░ ▓██▓ ░   ░ ▐██▓░
-░▒████▒ ▒██▒ ░ ░▒████▒░██▓ ▒██▒▒██░   ▓██░░██░  ▒██▒ ░   ░ ██▒▓░
-░░ ▒░ ░ ▒ ░░   ░░ ▒░ ░░ ▒▓ ░▒▓░░ ▒░   ▒ ▒ ░▓    ▒ ░░      ██▒▒▒ 
- ░ ░  ░   ░     ░ ░  ░  ░▒ ░ ▒░░ ░░   ░ ▒░ ▒ ░    ░     ▓██ ░▒░ 
-   ░    ░         ░     ░░   ░    ░   ░ ░  ▒ ░  ░       ▒ ▒ ░░  
-   ░  ░           ░  ░   ░              ░  ░            ░ ░     
-                                                        ░ ░     
-			             Made by hashkiller#5141
-
-'''
-
-print(Colorate.Diagonal(Colors.green_to_blue, Center.XCenter(logo)))
-
 
 
 
@@ -506,16 +507,16 @@ def starturl():
 	global choice1
 	global ips
 
-	choice1 = Write.Input(f"Do you want one target [0] or more[1] >", Colors.blue_to_green, interval=0.02)
+	choice1 = Write.Input(f"Do you want one target [0] or more[1] >", Colors.blue_to_purple, interval=0.02)
 
 	if choice1 == "1":
-		ip_file = Write.Input(f"Insert txt file of ips > ", Colors.blue_to_green, interval=0.02)
+		ip_file = Write.Input(f"Insert txt file of ips > ", Colors.blue_to_purple, interval=0.02)
 		ips = open(ip_file).readlines()
 
 
 
 	else:
-		url = Write.Input("\nInsert URL/IP: ", Colors.blue_to_green, interval=0.02).strip()
+		url = Write.Input("\nInsert URL/IP: ", Colors.blue_to_purple, interval=0.02).strip()
 
 		if url == "":
 			print("Please enter the url.")
@@ -547,7 +548,7 @@ def starturl():
 
 def proxymode():
 	global choice2
-	choice2 = Write.Input(f"Do you want proxy/socks mode? [y / n] (BETA FUNCTION UNE [N]) ", Colors.blue_to_green, interval=0.02)
+	choice2 = Write.Input(f"Do you want proxy/socks mode? [y / n] (BETA FUNCTION UNE [N]) ", Colors.blue_to_purple, interval=0.02)
 	if choice2 == "y":
 		choiceproxysocks()
 	else:
@@ -555,7 +556,7 @@ def proxymode():
 
 def choiceproxysocks():
 	global choice3
-	choice3 = Write.Input(f"Type '0' to enable proxymode or type '1' to enable socksmode: ", Colors.blue_to_green, interval=0.02)
+	choice3 = Write.Input(f"Type '0' to enable proxymode or type '1' to enable socksmode: ", Colors.blue_to_purple, interval=0.02)
 	if choice3 == "0":
 		choicedownproxy()
 	elif choice3 == "1":
@@ -565,7 +566,7 @@ def choiceproxysocks():
 		choiceproxysocks()
 
 def choicedownproxy():
-	choice4 = Write.Input(f"Do you want to download a new list of proxy? Answer 'y' to do it: ", Colors.blue_to_green, interval=0.02)
+	choice4 = Write.Input(f"Do you want to download a new list of proxy? Answer 'y' to do it: ", Colors.blue_to_purple, interval=0.02)
 	if choice4 == "y":
 		urlproxy = "http://free-proxy-list.net/"
 		proxyget(urlproxy)
@@ -573,7 +574,7 @@ def choicedownproxy():
 		proxylist()
 
 def choicedownsocks():
-	choice4 = Write.Input(f"Do you want to download a new list of socks? Answer 'y' to do it: ", Colors.blue_to_green, interval=0.02)
+	choice4 = Write.Input(f"Do you want to download a new list of socks? Answer 'y' to do it: ", Colors.blue_to_purple, interval=0.02)
 	if choice4 == "y":
 		urlproxy = "https://www.socks-proxy.net/"
 		proxyget(urlproxy)
@@ -607,7 +608,7 @@ def proxyget(urlproxy):
 
 def proxylist():
 	global proxies
-	out_file = str(Write.Input(f"Enter the proxylist filename/path (proxy.txt): ", Colors.blue_to_green, interval=0.02))
+	out_file = str(Write.Input(f"Enter the proxylist filename/path (proxy.txt): ", Colors.blue_to_purple, interval=0.02))
 	if out_file == "":
 		out_file = "proxy.txt"
 	proxies = open(out_file).readlines()
@@ -616,7 +617,7 @@ def proxylist():
 def numthreads():
 	global threads
 	try:
-		threads = int(Write.Input(f"Insert number of threads (800): ", Colors.blue_to_green, interval=0.02))
+		threads = int(Write.Input(f"Insert number of threads (800): ", Colors.blue_to_purple, interval=0.02))
 	except ValueError:
 		threads = 800
 		print ("800 threads selected.\n")
@@ -625,14 +626,14 @@ def numthreads():
 def multiplication():
 	global multiple
 	try:
-		multiple = int(Write.Input("Insert a number of multiplication for the attack [(1-5=normal)(50=powerful)(100 or more=bomb)]: ", Colors.blue_to_green, interval=0.02))
+		multiple = int(Write.Input("Insert a number of multiplication for the attack [(1-5=normal)(50=powerful)(100 or more=bomb)]: ", Colors.blue_to_purple, interval=0.02))
 	except ValueError:
 		print("You mistyped, try again.\n")
 		multiplication()
 	begin()
 
 def begin():
-	choice6 = Write.Input(f"Press 'Enter' to start attack: ", Colors.blue_to_green, interval=0.02)
+	choice6 = Write.Input(f"Press 'Enter' to start attack: ", Colors.blue_to_purple, interval=0.02)
 	if choice6 == "":
 		loop()
 	elif choice6 == "Enter": 
@@ -806,6 +807,12 @@ class RequestDefaultHTTP(threading.Thread):
 
 
 if __name__ == '__main__':
-	starturl() 
-
-
+	print(Colorate.Diagonal(Colors.blue_to_purple, Center.XCenter(logo)))
+	choice_l = Write.Input(f"Layer7 [0] or Layer4 [1] >", Colors.blue_to_purple, interval=0.02)
+	if choice_l == '0':
+		starturl()
+	elif choice_l == '1':
+		os.system('cls')
+		os.system('python l4.py')
+		
+	
