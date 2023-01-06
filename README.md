@@ -1,4 +1,4 @@
-## Eternity Stresser (LAYER7)
+## Eternity Stresser (LAYER7/LAYER4)
 
 ### Features:
 
