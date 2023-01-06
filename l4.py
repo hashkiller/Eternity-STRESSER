@@ -93,7 +93,7 @@ ascii = r'''
    ░  ░           ░  ░   ░              ░  ░            ░ ░     
                                                         ░ ░     
 
-        The only limit is your internet connection.              
+        Made by billythegoat356.              
 '''
 
 
