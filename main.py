@@ -54,7 +54,6 @@ Thanks for using my stresser !
 
 def startattack():
 	os.system("mode 120, 30")
-	os.system('asciivp explosion-mushroom-cloud.gif --color')
 	os.system('cls')
 	print(Colorate.Diagonal(Colors.red_to_yellow, Center.XCenter(logo_nuke)))
 	print(Colorate.Diagonal(Colors.red_to_purple, Center.XCenter(logo_sub1)))
