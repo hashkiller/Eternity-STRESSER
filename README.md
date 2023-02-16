@@ -1,3 +1,4 @@
+<img src="https://visitor-badge.glitch.me/badge?page_id==hashkiller.Eternity-STRESSER&left_text=Visitors&right_color=purple">
 ## Eternity Stresser (LAYER7/LAYER4)
 
 ### Features:
